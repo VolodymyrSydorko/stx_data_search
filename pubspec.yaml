@@ -1,0 +1,13 @@
+name: stx_data_search
+description: A starting point for Dart libraries or applications.
+version: 1.0.0
+# homepage: https://www.example.com
+
+environment:
+  sdk: '>=2.16.0 <3.0.0'
+
+# dependencies:
+#   path: ^1.8.0
+  
+dev_dependencies: 
+  flutter_lints: ^1.0.4
