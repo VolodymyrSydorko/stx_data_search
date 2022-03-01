@@ -9,7 +9,7 @@ class Professor {
   final int id;
   final String firstName;
   final String lastName;
-  Set<String> emails;
+  final Set<String> emails;
 
   Professor copyWith({
     int? id,
@@ -30,22 +30,22 @@ class Department {
   Department({
     required this.id,
     required this.name,
-    required this.processors,
+    required this.professors,
   });
 
   final int id;
   final String name;
-  final Set<Professor> processors;
+  final Set<Professor> professors;
 
   Department copyWith({
     int? id,
     String? name,
-    Set<Professor>? processors,
+    Set<Professor>? professors,
   }) {
     return Department(
       id: id ?? this.id,
       name: name ?? this.name,
-      processors: processors ?? this.processors,
+      professors: professors ?? this.professors,
     );
   }
 }
@@ -82,30 +82,30 @@ final universities = [
       Department(
         id: 1,
         name: 'Faculty of Welding',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'James',
             lastName: 'Smith',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'James.Smith@test.com', 'James.Smith@gmail.com'},
           ),
           Professor(
             id: 1,
             firstName: 'John',
             lastName: 'Johnson',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'John.Johnson@test.com', 'John.Johnson@gmail.com'},
           ),
         },
       ),
       Department(
         id: 2,
         name: 'Faculty of Biomedical Engineering',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Michael',
             lastName: 'Locksley',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'Michael.Locksley@test.com', 'Michael.Locksley@gmail.com'},
           ),
           Professor(
             id: 1,
@@ -118,7 +118,7 @@ final universities = [
       Department(
         id: 3,
         name: 'Faculty of Radio Engineering',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'David',
@@ -142,7 +142,7 @@ final universities = [
       Department(
         id: 1,
         name: 'Faculty of Chemistry',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Thomas',
@@ -160,12 +160,12 @@ final universities = [
       Department(
         id: 2,
         name: 'Faculty of Geography',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Charles',
             lastName: 'Davis',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'test@test.com'},
           ),
           Professor(
             id: 1,
@@ -178,7 +178,7 @@ final universities = [
       Department(
         id: 3,
         name: 'Faculty of History',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Daniel',
@@ -202,7 +202,7 @@ final universities = [
       Department(
         id: 1,
         name: 'Faculty of Applied Mathematics and Informatics',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Anthony',
@@ -220,7 +220,7 @@ final universities = [
       Department(
         id: 2,
         name: 'Faculty of International Relations',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Brian',
@@ -238,7 +238,7 @@ final universities = [
       Department(
         id: 3,
         name: 'Faculty of Philology',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Jeffrey',
@@ -262,54 +262,58 @@ final universities = [
       Department(
         id: 1,
         name: 'Faculty of History',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Mark',
             lastName: 'Jackson',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'Mark.Jackson@test.com'},
           ),
           Professor(
             id: 1,
             firstName: 'Joshua',
             lastName: 'Martin',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {
+              'Joshua.Martin@test.com',
+              'Joshua.Martin@gmail.com',
+              'Joshua.Martin2@gmail.com'
+            },
           ),
         },
       ),
       Department(
         id: 2,
         name: 'Faculty of Applied Mathematics and Informatics',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Ryan',
             lastName: 'Lee',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'RyanLee@test.com', 'RyanLee@gmail.com'},
           ),
           Professor(
             id: 1,
             firstName: 'Jacob',
             lastName: 'Perez',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'JacobPerez@test.com'},
           ),
         },
       ),
       Department(
         id: 3,
         name: 'Faculty of Foreign Languages',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Gary',
             lastName: 'White',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'GaryWhite@test.com', 'GaryWhite@gmail.com'},
           ),
           Professor(
             id: 1,
             firstName: 'Nicholas',
             lastName: 'Harris',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'test@test.com'},
           ),
         },
       ),
@@ -322,12 +326,12 @@ final universities = [
       Department(
         id: 1,
         name: 'Faculty of Applied Mathematics and Informatics',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Larry',
             lastName: 'Sanchez',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {'LarrySanchez@gmail.com'},
           ),
           Professor(
             id: 1,
@@ -340,12 +344,12 @@ final universities = [
       Department(
         id: 2,
         name: 'Faculty of History',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Frank',
             lastName: 'Ramirez',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {},
           ),
           Professor(
             id: 1,
@@ -358,12 +362,16 @@ final universities = [
       Department(
         id: 3,
         name: 'Faculty of Geology',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Jack',
             lastName: 'Robinson',
-            emails: {'test@test.com', 'test@gmail.com'},
+            emails: {
+              'test@test.com',
+              'JackRobinson@gmail.com',
+              'JackRobinson2@gmail.com'
+            },
           ),
           Professor(
             id: 1,
@@ -382,7 +390,7 @@ final universities = [
       Department(
         id: 1,
         name: 'Faculty of Health, Physical Education and Sports',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Jerry',
@@ -400,7 +408,7 @@ final universities = [
       Department(
         id: 2,
         name: 'Institute of Arts',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Jose',
@@ -418,7 +426,7 @@ final universities = [
       Department(
         id: 3,
         name: 'Institute of Human Sciences',
-        processors: {
+        professors: {
           Professor(
             id: 1,
             firstName: 'Patrick',
