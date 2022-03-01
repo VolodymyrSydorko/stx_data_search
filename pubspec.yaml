@@ -1,7 +1,10 @@
 name: stx_data_search
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
+description: Generic search package for collections.
+version: 1.0.1
+
+homepage: https://github.com/VolodymyrSydorko/stx_data_search
 repository: https://github.com/VolodymyrSydorko/stx_data_search
+documentation: https://github.com/VolodymyrSydorko/stx_data_search
 
 environment:
   sdk: '>=2.16.0 <3.0.0'
